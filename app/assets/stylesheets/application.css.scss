@@ -1,0 +1,16 @@
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+// Include responsive Bootstrap styles
+/*@import "bootstrap-responsive";*/
+
+@import "jquery.plupload.queue";
+
+#file_store_search {
+  text-align: center;
+  input { width: 50%; }
+}
+
+#file_stores {
+  display: none;
+}

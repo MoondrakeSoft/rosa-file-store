@@ -1,0 +1,9 @@
+#file_store_search
+  = form_tag api_file_stores_path, :method => 'get', :class => 'form-search', :id => 'search' do
+    = text_field_tag 'hash', params[:hash], :placeholder => t(".search_placeholder")
+    %button.btn{:type => "submit"}= t(".search_button")
+
+#file_stores.hero-unit
+
+#file_store_uploader
+  %p= t(".uploader")

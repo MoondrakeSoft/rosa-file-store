@@ -1,0 +1,16 @@
+*~
+.bundle
+.rvmrc
+.rbenv
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/
+config/database.yml
+.idea
+uploads/*
+public/assets/*
+public/system/*
+*.swp
+*.tmproj
+.sass-cache/

@@ -1,0 +1,17 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  layouts:
+    application:
+      title: "Rosa File Store"
+      menu:
+        about: "About"
+        about_url: "http://www.rosalab.com/about"
+        contacts: "Contacts"
+        contacts_url: "http://www.rosalab.com/about/contacts"
+  home:
+    index:
+      search_placeholder: "Hash for search"
+      search_button: "Search"
+      uploader: "You browser doesn't have HTML5 support."
