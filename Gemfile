@@ -25,8 +25,10 @@ end
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.3.1'
 
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  # gem 'ruby-debug19', :require => 'ruby-debug'
+  # deploy
+  gem 'capistrano', :require => false
+  gem 'rvm-capistrano', :require => false
+  gem 'capistrano_colors', :require => false
+end
