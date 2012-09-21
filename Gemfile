@@ -24,6 +24,7 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.3.1'
+gem 'highline'
 
 group :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
