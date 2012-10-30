@@ -74,8 +74,9 @@ class Api::V1::FileStoresController < Api::ApplicationController
       req.basic_auth user, pass
       @res= http.request(req)
       return true if @res.code == '200'
-      error = {:Authorization => ['at ABF failed!']}
-      render json: error, status: :unprocessable_entity
+      message = {} # Plupload expect array at values
+      JSON.parse(@res.body).each {|k, v| message["#{k.capitalize}:"] = [v]}
+      render json: message, status: @res.code.to_i
       return false
     end
   end
