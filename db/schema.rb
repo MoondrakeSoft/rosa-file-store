@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827144021) do
+ActiveRecord::Schema.define(:version => 20121030083502) do
 
   create_table "file_stores", :force => true do |t|
     t.string   "file"
     t.string   "sha1_hash"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "user_uname"
   end
 
   add_index "file_stores", ["sha1_hash"], :name => "index_file_stores_on_sha1_hash", :unique => true
