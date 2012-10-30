@@ -31,19 +31,14 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # POST /file_stores
   # POST /file_stores.json
   def create
-    if @res.code != '200'
-      error = {:Authorization => ['at ABF failed!']}
-      render json: error, status: :unprocessable_entity
-    else
-      user = JSON.parse(@res.body)['user']
-      @file_store = FileStore.new(params[:file_store])
-      @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
+    user = JSON.parse(@res.body)['user']
+    @file_store = FileStore.new(params[:file_store])
+    @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
 
-      if @file_store.save
-        render json: @file_store, status: :created #, location: @file_store
-      else
-        render json: @file_store.errors, status: :unprocessable_entity
-      end
+    if @file_store.save
+      render json: @file_store, status: :created #, location: @file_store
+    else
+      render json: @file_store.errors, status: :unprocessable_entity
     end
   end
 
@@ -78,7 +73,10 @@ class Api::V1::FileStoresController < Api::ApplicationController
       req = Net::HTTP::Get.new(uri.request_uri,initheader = {'Content-Type' =>'application/json'})
       req.basic_auth user, pass
       @res= http.request(req)
-      #@res.is_a? Net::HTTPOK
+      return true if @res.code == '200'
+      error = {:Authorization => ['at ABF failed!']}
+      render json: error, status: :unprocessable_entity
+      return false
     end
   end
 end
