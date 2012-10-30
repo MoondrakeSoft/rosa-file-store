@@ -32,7 +32,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # POST /file_stores.json
   def create
     if @res.code != '200'
-      error = {:authorization => 'failed'}
+      error = {:Authorization => ['at ABF failed!']}
       render json: error, status: :unprocessable_entity
     else
       user = JSON.parse(@res.body)['user']
