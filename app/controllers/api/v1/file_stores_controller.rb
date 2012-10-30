@@ -1,4 +1,8 @@
 class Api::V1::FileStoresController < Api::ApplicationController
+  require 'net/http'
+  include ActionController::HttpAuthentication::Basic::ControllerMethods
+  before_filter :authenticate, :only => :create
+
   # GET /file_stores?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   # GET /file_stores.json?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   def index
@@ -20,19 +24,26 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # # GET /file_stores/new.json
   # def new
   #   @file_store = FileStore.new
-  # 
+  #
   #   render json: @file_store
   # end
 
   # POST /file_stores
   # POST /file_stores.json
   def create
-    @file_store = FileStore.new(params[:file_store])
-
-    if @file_store.save
-      render json: @file_store, status: :created #, location: @file_store
+    if @res.code != '200'
+      error = {:authorization => 'failed'}
+      render json: error, status: :unprocessable_entity
     else
-      render json: @file_store.errors, status: :unprocessable_entity
+      user = JSON.parse(@res.body)['user']
+      @file_store = FileStore.new(params[:file_store])
+      @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
+
+      if @file_store.save
+        render json: @file_store, status: :created #, location: @file_store
+      else
+        render json: @file_store.errors, status: :unprocessable_entity
+      end
     end
   end
 
@@ -40,20 +51,34 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # # PATCH/PUT /file_stores/1.json
   # def update
   #   @file_store = FileStore.find(params[:id])
-  # 
+  #
   #   if @file_store.update_attributes(params[:file_store])
   #     head :no_content
   #   else
   #     render json: @file_store.errors, status: :unprocessable_entity
   #   end
   # end
-  # 
+  #
   # # DELETE /file_stores/1
   # # DELETE /file_stores/1.json
   # def destroy
   #   @file_store = FileStore.find(params[:id])
   #   @file_store.destroy
-  # 
+  #
   #   head :no_content
   # end
+
+  private
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |user, pass|
+      uri = URI.parse('https://abf.rosalinux.ru/api/v1/user.json')
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      req = Net::HTTP::Get.new(uri.request_uri,initheader = {'Content-Type' =>'application/json'})
+      req.basic_auth user, pass
+      @res= http.request(req)
+      #@res.is_a? Net::HTTPOK
+    end
+  end
 end
