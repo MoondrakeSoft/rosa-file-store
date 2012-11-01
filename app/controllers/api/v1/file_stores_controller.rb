@@ -6,7 +6,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # GET /file_stores?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   # GET /file_stores.json?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   def index
-    @file_stores = FileStore.by_hash(params[:hash]).select(:sha1_hash, :file)
+    @file_stores = FileStore.by_hash(params[:hash]).select('sha1_hash, file')
 
     render json: @file_stores
   end
