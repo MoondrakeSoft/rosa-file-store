@@ -36,7 +36,8 @@ class Api::V1::FileStoresController < Api::ApplicationController
     @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
 
     if @file_store.save
-      render json: @file_store, status: :created #, location: @file_store
+      mes = {:sha1_hash => @file_store.sha1_hash}
+      render json: mes, status: :created #, location: @file_store
     else
       render json: @file_store.errors, status: :unprocessable_entity
     end
