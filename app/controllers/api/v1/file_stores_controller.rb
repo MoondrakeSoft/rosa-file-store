@@ -32,7 +32,14 @@ class Api::V1::FileStoresController < Api::ApplicationController
   # POST /file_stores.json
   def create
     user = JSON.parse(@res.body)['user']
-    @file_store = FileStore.new(params[:file_store])
+    @file_store = FileStore.new
+    @file_store.sha1_hash = params[:file][:sha1]
+    @file_store.file = ActionDispatch::Http::UploadedFile.new({
+                         :filename => params[:file][:name],
+                         :type => params[:file][:content_type],
+                         :head => nil,
+                         :tempfile => File.open(params[:file][:path])
+                       })
     @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
 
     if @file_store.save
