@@ -1,9 +1,7 @@
 class FileStore < ActiveRecord::Base
-  attr_accessible :file
+  attr_accessible #:file
   validates :file, :sha1_hash, :presence => true
   validates :sha1_hash, :uniqueness => true #, :on => :create
-
-  before_validation {self.sha1_hash = Digest::SHA1.file(file.path).hexdigest if file_changed?}
 
   mount_uploader :file, FileUploader
 
