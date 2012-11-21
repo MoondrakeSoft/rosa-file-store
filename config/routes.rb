@@ -1,7 +1,8 @@
 RosaFileStore::Application.routes.draw do
   namespace :api do
     scope :module => :v1, :path => 'v1' do
-      resources :file_stores, :only => [:index, :show, :create]
+      resources :file_stores, :only => [:index, :show]
+      post 'upload' => 'file_stores#create', :as => :create
     end
   end
 
