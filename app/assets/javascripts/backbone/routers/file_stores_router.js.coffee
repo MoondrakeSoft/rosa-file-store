@@ -10,7 +10,7 @@ class RosaFileStore.Routers.FileStoresRouter extends Backbone.Router
     $("#file_store_uploader").pluploadQueue
       runtimes: 'html5'
       multiple_queues: true
-      url: RosaFileStore.config.apiPrefix + 'file_stores'
+      url: RosaFileStore.config.apiPrefix + 'upload'
       file_data_name: 'file_store[file]'
 
     @search_view = new RosaFileStore.Views.FileStores.IndexView(file_stores: @file_stores)
