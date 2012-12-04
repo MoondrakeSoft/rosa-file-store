@@ -20,7 +20,8 @@ class Api::V1::FileStoresController < Api::ApplicationController
 
     # render json: @file_store
     if params[:show] && @file_store.file_name =~ /.*\.(log|txt)$/
-      render :text => @file_store.file.read, :content_type => 'text/plain'
+      # render :text => @file_store.file.read, :content_type => 'text/plain'
+      send_file @file_store.file.path, :type => 'text/plain', :disposition => 'inline'
     else
       send_file @file_store.file.path
     end
