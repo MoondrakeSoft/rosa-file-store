@@ -17,7 +17,11 @@ class Api::V1::FileStoresController < Api::ApplicationController
     @file_store = FileStore.find_by_sha1_hash!(params[:id])
 
     # render json: @file_store
-    send_file @file_store.file.path
+    if params[:show] && @file_store.file_name =~ /.*\.(log|txt)$/
+      render :text => @file_store.file.read, :content_type => 'text/plain'
+    else
+      send_file @file_store.file.path
+    end
   end
 
   # # GET /file_stores/new
