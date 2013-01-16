@@ -18,6 +18,6 @@ class Api::ApplicationController < ActionController::API
   end
 
   def render_error(status)
-    render json: {"Error #{status}:" => [t("#{status}_message")]}, status: status
+    render json: {"Error #{status}" => [t("#{status}_message")]}, status: status
   end
 end
