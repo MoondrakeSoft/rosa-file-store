@@ -1,7 +1,7 @@
 class Api::V1::FileStoresController < Api::ApplicationController
   require 'net/http'
   include ActionController::HttpAuthentication::Basic::ControllerMethods
-  before_filter :authenticate, :only => :create
+  before_filter :authenticate, :only => [:create, :destroy]
 
   # GET /file_stores?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   # GET /file_stores.json?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
@@ -69,14 +69,18 @@ class Api::V1::FileStoresController < Api::ApplicationController
   #   end
   # end
   #
-  # # DELETE /file_stores/1
-  # # DELETE /file_stores/1.json
-  # def destroy
-  #   @file_store = FileStore.find(params[:id])
-  #   @file_store.destroy
-  #
-  #   head :no_content
-  # end
+  # DELETE /file_stores/1
+  # DELETE /file_stores/1.json
+  def destroy
+    user = JSON.parse(@res.body)['user']
+    @file_store = FileStore.find_by_sha1_hash!(params[:id])
+    if user['id'] == @file_store.id || user['role'] == 'admin'
+      @file_store.destroy
+      head :no_content
+    else
+      render_error 403
+    end
+  end
 
   private
 
