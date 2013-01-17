@@ -56,7 +56,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
     @file_store.user_id, @file_store.user_uname = user['id'], user['uname']
 
     if @file_store.save
-      File.rm_rf params[:file][:path]
+      File.delete params[:file][:path]
       mes = {:sha1_hash => @file_store.sha1_hash}
       render json: mes, status: :created #, location: @file_store
     else
