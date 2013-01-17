@@ -81,7 +81,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
   def destroy
     user = JSON.parse(@res.body)['user']
     @file_store = FileStore.find_by_sha1_hash!(params[:id])
-    if user['id'] == @file_store.id || user['role'] == 'admin'
+    if user['id'] == @file_store.user_id || user['role'] == 'admin'
       @file_store.destroy
       head :no_content
     else
