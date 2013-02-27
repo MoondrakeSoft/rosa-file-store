@@ -1,7 +1,9 @@
 class FileStore < ActiveRecord::Base
   attr_accessible #:file
   validates :file, :sha1_hash, :presence => true
-  validates :sha1_hash, :uniqueness => true #, :on => :create
+  validate lambda {
+    errors.add(:sha1_hash, "'#{sha1_hash}' - such file already has been uploaded") if FileStore.exists?(:sha1_hash => sha1_hash)
+  }
 
   mount_uploader :file, FileUploader
 

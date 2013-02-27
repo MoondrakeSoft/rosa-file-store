@@ -1,0 +1,21 @@
+#zeroclipboard_button.multiple {
+  float: right;
+  margin-top: -17px;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-image: url(zeroclipboard/button_up.png);
+  background-repeat: no-repeat;
+}
+#zeroclipboard_button.multiple.hover { 
+  background-image: url(zeroclipboard/button_over.png);
+  background-repeat: no-repeat;
+}
+#zeroclipboard_button.multiple.active { 
+  background-image: url(zeroclipboard/button_down.png);
+  background-repeat: no-repeat;
+}
+
+.plupload_result {
+  min-width: 300px;
+}

@@ -102,7 +102,10 @@
 
           if (file.status == plupload.DONE) {
             actionClass = 'plupload_done';
-            result.push('<a href="/download/' + data.sha1_hash + '">' + data.sha1_hash + '</a>');
+            var sha1_hash = data.sha1_hash;
+            var str = '<a href="/download/' + sha1_hash + '">' + sha1_hash + '</a>' +
+              '<span id="zeroclipboard_button" class="multiple" text_value="' + sha1_hash + '"></span>';
+            result.push(str);
           }
 
           if (file.status == plupload.FAILED) {
