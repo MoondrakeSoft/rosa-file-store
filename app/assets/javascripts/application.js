@@ -10,3 +10,6 @@
 //= require backbone_datalink
 //= require plupload
 //= require backbone/rosa_file_store
+
+//= require zeroclipboard/zeroclipboard
+//= require zeroclipboard/zeroclipboard.custom
