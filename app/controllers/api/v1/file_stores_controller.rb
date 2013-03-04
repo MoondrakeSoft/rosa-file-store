@@ -94,7 +94,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |user, pass|
-      uri = URI.parse('https://abf.rosalinux.ru/api/v1/user.json')
+      uri = URI.parse("#{APP_CONFIG['abf_url']}/api/v1/user.json")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri,initheader = {'Content-Type' =>'application/json'})

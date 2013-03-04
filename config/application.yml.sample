@@ -1,0 +1,13 @@
+common: &common
+  abf_url: 'https://abf.rosalinux.ru'
+  keys:
+    secret_token: 'secret_token'
+
+development:
+  <<: *common
+
+production:
+  <<: *common
+
+test:
+  <<: *common
