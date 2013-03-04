@@ -1,0 +1,12 @@
+common: &common
+  keys:
+    secret_token: 'secret_token'
+
+development:
+  <<: *common
+
+production:
+  <<: *common
+
+test:
+  <<: *common

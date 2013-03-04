@@ -14,3 +14,4 @@ public/system/*
 *.swp
 *.tmproj
 .sass-cache/
+config/application.yml
