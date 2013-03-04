@@ -1,4 +1,5 @@
 common: &common
+  abf_url: 'https://abf.rosalinux.ru'
   keys:
     secret_token: 'secret_token'
 
