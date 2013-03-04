@@ -15,3 +15,4 @@ public/system/*
 *.tmproj
 .sass-cache/
 config/application.yml
+config/deploy.rb
