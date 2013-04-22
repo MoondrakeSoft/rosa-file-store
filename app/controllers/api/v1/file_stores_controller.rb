@@ -1,7 +1,7 @@
 class Api::V1::FileStoresController < Api::ApplicationController
   require 'net/http'
   include ActionController::HttpAuthentication::Basic::ControllerMethods
-  before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:create, :destroy, :check]
 
   # GET /file_stores?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
   # GET /file_stores.json?hash=3a93e5553490e39b4cd50269d51ad8438b7e20b8
@@ -88,6 +88,10 @@ class Api::V1::FileStoresController < Api::ApplicationController
     else
       render_error 403
     end
+  end
+
+  def check
+    render json: true, status: 200
   end
 
   private

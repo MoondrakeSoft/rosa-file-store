@@ -257,7 +257,9 @@
 
           $('a.plupload_start', target).click(function(e) {
             if (!$(this).hasClass('plupload_disabled')) {
-              uploader.start();
+              $.get($('#auth_check_path').val()).done(function(data) {
+                uploader.start();
+              });
             }
 
             e.preventDefault();
