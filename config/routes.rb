@@ -3,6 +3,7 @@ RosaFileStore::Application.routes.draw do
     scope :module => :v1, :path => 'v1' do
       resources :file_stores, :only => [:index, :show, :destroy]
       post 'upload' => 'file_stores#create', :as => :create
+      get  'check'  => 'file_stores#check',  :as => :check
     end
   end
 
