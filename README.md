@@ -6,7 +6,7 @@ title: RosaLab File Store
 
 **Online file storage.**
 
-A distributed environment to build distributions, supporting all steps from managing source code to creating ISO images. If you have any problems or requests please contact
+This describes the resources that make up the official Rosa File Store Documentation. If you have any problems or requests please contact
 [support](https://abf.rosalinux.ru/contact).
 
 **Note: This Documentation is in a beta state. Breaking changes may occur.**
