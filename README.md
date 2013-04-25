@@ -1,8 +1,5 @@
----
-title: RosaLab File Store 
----
-
-# RosaLab File Store
+RosaLab File Store
+==================
 
 **Online file storage.**
 
