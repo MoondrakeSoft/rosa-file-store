@@ -5,34 +5,29 @@ base_path  = "/app/file_store"
 rails_env = ENV['RAILS_ENV'] || 'production'
 
 worker_processes ENV['WORKER_PROCESSES'] || 7
-working_directory File.join(base_path, 'current') # available in 0.94.0+
+working_directory File.join(base_path) # available in 0.94.0+
 
-# listen File.join(base_path, 'tmp', 'pids', 'unicorn.sock')
+# listen File.join(base_path, 'tmp', 'unicorn.sock')
 # listen "/tmp/.sock", :backlog => 64
 # listen 8080, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 600
 
-# feel free to point this anywhere accessible on the filesystem
-pid_file = File.join(base_path, 'shared', 'pids', 'unicorn.pid')
-old_pid = pid_file + '.oldbin'
-
-pid pid_file
-
 # REE or Ruby 2.0
 # http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 
 before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = "#{base_path}/current/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "#{base_path}/Gemfile"
 end
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path File.join(base_path, 'current', 'log', 'unicorn.stderr.log')
-stdout_path File.join(base_path, 'current', 'log', 'unicorn.stdout.log')
+stderr_path File.join(base_path, 'log', 'unicorn.stderr.log')
+stdout_path File.join(base_path, 'log', 'unicorn.stdout.log')
+
 
 # combine REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
