@@ -1,7 +1,7 @@
 common: &common
-  abf_url: 'https://abf.rosalinux.ru'
+  abf_url: <%= ENV["HOST_URL"] %>
   keys:
-    secret_token: 'secret_token'
+    secret_token: <%= ENV["SECRET_TOKEN"] %>
 
 development:
   <<: *common

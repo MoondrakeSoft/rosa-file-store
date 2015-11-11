@@ -1,8 +1,8 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: rosa_file_store
+  database: omv_file_store
   template: template0
   pool: 5
-  username: rosa
-  password: rosa
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>

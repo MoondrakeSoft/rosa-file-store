@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 #base_path = File.expand_path(File.join File.dirname(__FILE__), '..')
-base_path  = "/srv/rosa_file_store"
+base_path  = "/app/file_store"
 
 rails_env = ENV['RAILS_ENV'] || 'production'
 
-worker_processes 8
+worker_processes ENV['WORKER_PROCESSES'] || 7
 working_directory File.join(base_path, 'current') # available in 0.94.0+
 
 # listen File.join(base_path, 'tmp', 'pids', 'unicorn.sock')
