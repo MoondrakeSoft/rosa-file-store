@@ -4,7 +4,7 @@ gem 'rails', '3.2.12'
 
 gem 'rails-api', '~> 0.0.2'
 
-gem 'pg', '~> 0.14.1'
+gem 'pg', '~> 0.18.3'
 
 gem 'carrierwave', '~> 0.6.2'
 gem 'test-unit', '~> 3.1.5'
