@@ -4,7 +4,7 @@ base_path  = "/app/file_store"
 
 rails_env = ENV['RAILS_ENV'] || 'production'
 
-worker_processes ENV['WORKER_PROCESSES'] || 7
+worker_processes ENV['WORKER_PROCESSES'] ? ENV['WORKER_PROCESSES'].to_i : 7
 working_directory File.join(base_path) # available in 0.94.0+
 
 # listen File.join(base_path, 'tmp', 'unicorn.sock')

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 
 gem 'rails-api', '~> 0.0.2'
+gem 'config_for'
 
 gem 'pg', '~> 0.18.3'
 
@@ -20,7 +21,7 @@ group :assets do
   gem 'compass-rails', '~> 1.0.3'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '~> 1.2.7'
-  gem 'therubyracer', '~> 0.10.2', :platforms => [:mri, :rbx]
+  gem 'therubyracer'
 end
 
 # Use unicorn as the app server
