@@ -46,7 +46,7 @@ class Api::V1::FileStoresController < Api::ApplicationController
   def create
     user = JSON.parse(@res.body)['user']
     @file_store = FileStore.new
-    @file_store.sha1_hash = params[:file][:sha1]
+    @file_store.sha1_hash = Digest::SHA1.file(params[:file][:path]).hexdigest
     @file_store.file = ActionDispatch::Http::UploadedFile.new({
                          :filename => params[:file][:name],
                          :type => params[:file][:content_type],
