@@ -1,9 +1,9 @@
 var clip = null;
 
 function addEventForZeroClipboard(){
-  
+
   // assign a common mouseover function for all elements using jQuery
-  jQuery('span.multiple').live('mouseover', function() {
+  jQuery('span.multiple').on('mouseover', function() {
     // get text
     var text = jQuery(this).attr("text_value");
     // decode after 'CGI.escape' and decode '+' as 'space'
@@ -23,16 +23,16 @@ function addEventForZeroClipboard(){
     // are properly updated.
     clip.receiveEvent('mouseover', null);
   });
-  
+
 };
 
 
 jQuery(document).ready(function() {
-  
+
   ZeroClipboard.setMoviePath( '/assets/zeroclipboard/dependencies/zeroclipboard10.swf' );
   // setup single ZeroClipboard object for all our elements
   clip = new ZeroClipboard.Client();
   clip.setHandCursor( true );
   addEventForZeroClipboard();
-  
+
 });

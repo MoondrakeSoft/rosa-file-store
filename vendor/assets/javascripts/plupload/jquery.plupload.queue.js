@@ -129,7 +129,7 @@
 
           var icon = $('#' + file.id).attr('class', actionClass).find('a').css('display', 'block');
           if (file.hint) {
-            icon.attr('title', file.hint);  
+            icon.attr('title', file.hint);
           }
         }
 
@@ -154,7 +154,7 @@
 
               inputHTML += '<input type="hidden" name="' + id + '_' + inputCount + '_name" value="' + plupload.xmlEncode(file.name) + '" />';
               inputHTML += '<input type="hidden" name="' + id + '_' + inputCount + '_status" value="' + (file.status == plupload.DONE ? 'done' : 'failed') + '" />';
-  
+
               inputCount++;
 
               $('#' + id + '_count').val(inputCount);
@@ -212,7 +212,7 @@
 
           // Enable rename support
           if (!settings.unique_names && settings.rename) {
-            $('#' + id + '_filelist div.plupload_file_name span', target).live('click', function(e) {
+            $('#' + id + '_filelist div.plupload_file_name span', target).on('click', function(e) {
               var targetSpan = $(e.target), file, parts, name, ext = "";
 
               // Get file name and split out name and extension
@@ -292,7 +292,7 @@
             if (err.code == plupload.FILE_EXTENSION_ERROR) {
               alert(_("Error: Invalid file extension: ") + file.name);
             }
-            
+
             file.hint = message;
             $('#' + file.id).attr('class', 'plupload_failed').find('a').css('display', 'block').attr('title', message);
             handleStatus(file);
