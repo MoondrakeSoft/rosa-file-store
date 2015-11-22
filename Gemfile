@@ -6,8 +6,13 @@ gem 'app'
 gem 'carrierwave'
 gem 'dalli'
 gem 'kaminari'
-gem 'pg'
+gem 'puma'
 gem 'rails',                          '4.2.5'
+
+# DB
+gem 'connection_pool'
+gem 'pg'
+gem 'transaction_retry'
 
 # HTML, JS, CSS
 gem 'bootstrap-sass',                 '2.3.2.0'
@@ -20,8 +25,6 @@ gem 'slim-rails'
 gem 'uglifier'
 
 group :production do
-  gem 'connection_pool'
-  gem 'puma'
 end
 
 group :development do

@@ -216,6 +216,11 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    transaction_isolation (1.0.3)
+      activerecord (>= 3.0.11)
+    transaction_retry (1.0.2)
+      activerecord (>= 3.0.11)
+      transaction_isolation (>= 1.0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -264,6 +269,7 @@ DEPENDENCIES
   shoulda-matchers
   slim-rails
   thin
+  transaction_retry
   uglifier
   web-console
 
