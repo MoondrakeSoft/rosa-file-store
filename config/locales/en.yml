@@ -1,15 +1,12 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   layouts:
     application:
-      title: "Rosa File Store"
+      title: "OpenMandriva Association File Store"
       menu:
         about: "About"
-        about_url: "http://www.rosalab.com/about"
+        about_url: "https://www.openmandriva.org/About"
         contacts: "Contacts"
-        contacts_url: "http://www.rosalab.com/about/contacts"
+        contacts_url: "https://www.openmandriva.org/Join-contribute"
   403_message: Access violation to this page!
   404_message: Resource not found!
   500_message: Something went wrong.

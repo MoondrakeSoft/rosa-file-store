@@ -1,3 +1,23 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: rosa_file_store_development
+  pool:     5
+  username: postgres
+  password: postgres
+  template: template0
+
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: rosa_file_store_test
+  pool:     5
+  username: postgres
+  password: postgres
+  template: template0
+
 production:
   adapter: postgresql
   encoding: unicode

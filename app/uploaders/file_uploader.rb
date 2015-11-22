@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class FileUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -22,7 +20,7 @@ class FileUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{get_last_dir_part}"
   end
-  
+
   ## define how to partition directory
   def get_last_dir_part
     p = model.id.to_s.rjust(9, '0')

@@ -1,6 +1,8 @@
 RosaLab File Store
 ==================
 
+[![Build Status](https://secure.travis-ci.org/OpenMandrivaSoftware/rosa-file-store.png)](http://travis-ci.org/OpenMandrivaSoftware/rosa-file-store) [![Code Climate](https://codeclimate.com/github/OpenMandrivaSoftware/rosa-file-store/badges/gpa.svg)](https://codeclimate.com/github/OpenMandrivaSoftware/rosa-file-store)
+
 **Online file storage.**
 
 This describes the resources that make up the official Rosa File Store Documentation. If you have any problems or requests please contact
