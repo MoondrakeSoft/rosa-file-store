@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'app'
 gem 'carrierwave'
-gem 'dalli'
 gem 'kaminari'
 gem 'puma'
 gem 'rails',                          '4.2.5'
