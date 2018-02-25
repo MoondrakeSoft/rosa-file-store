@@ -72,7 +72,6 @@ pickle-email-*.html
 **.swp
 
 # Environment files that may contain sensitive data
-.env
 .powenv
 
 # tilde files are usually backup files from a text editor
