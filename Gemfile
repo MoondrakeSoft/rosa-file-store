@@ -5,6 +5,7 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'puma'
 gem 'rails',                          '4.2.5'
+gem 'dotenv-rails'
 
 # DB
 gem 'connection_pool'

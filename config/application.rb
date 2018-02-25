@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module RosaFileStore
   class Application < Rails::Application
+    # Load default environment configuration variables from '.env',
+    # that can be overridden in '.env.local' or '.env.<environment>'
+    Dotenv::Railtie.load unless ENV['NO_DOTENV_CONFIG']
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
