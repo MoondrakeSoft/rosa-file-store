@@ -4,7 +4,7 @@ gem 'app'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'puma'
-gem 'rails',                          '4.2.5'
+gem 'rails'
 gem 'dotenv-rails'
 
 # DB
