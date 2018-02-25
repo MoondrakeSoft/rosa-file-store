@@ -30,6 +30,16 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
+  # deploy
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-deploy', require: false
+  gem 'capistrano3-puma', '1.2.1', require: false
+  # net-ssh requires the following gems for ed25519 support:
+  gem 'rbnacl', '>= 3.2', '< 5.0', require: false
+  #gem 'rbnacl-libsodium', require: false
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
 end
 
 group :development, :test do
