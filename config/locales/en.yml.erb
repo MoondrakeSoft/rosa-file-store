@@ -1,12 +1,12 @@
 en:
   layouts:
     application:
-      title: "OpenMandriva Association File Store"
+      title: <%= ENV["FILE_STORE_TITLE"] %>
       menu:
         about: "About"
-        about_url: "https://www.openmandriva.org/About"
+        about_url: <%= ENV["FILE_STORE_ABOUT_URL"] %>
         contacts: "Contacts"
-        contacts_url: "https://www.openmandriva.org/Join-contribute"
+        contacts_url: <%= ENV["FILE_STORE_CONTACTS_URL"] %>
   403_message: Access violation to this page!
   404_message: Resource not found!
   500_message: Something went wrong.
