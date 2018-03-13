@@ -21,7 +21,7 @@ gem 'rails-backbone',                 '~> 0.7.2'
 gem 'sass-rails'
 gem 'slim-rails'
 gem 'uglifier'
-gem 'mini_racer'
+gem 'therubyracer'
 
 group :production do
 end
