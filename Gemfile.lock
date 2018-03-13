@@ -114,6 +114,7 @@ GEM
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     interception (0.5)
+    io-console (0.4.6)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -126,6 +127,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (6.3.292.48.1)
     loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -137,6 +139,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
+    mini_racer (0.1.15)
+      libv8 (~> 6.3)
     minitest (5.11.3)
     multi_json (1.11.2)
     net-scp (1.2.1)
@@ -300,10 +304,12 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   ffaker
+  io-console
   jquery-rails
   jquery-ui-rails
   kaminari
   launchy
+  mini_racer
   pg
   pry-rails
   pry-rescue

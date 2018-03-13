@@ -21,6 +21,7 @@ gem 'rails-backbone',                 '~> 0.7.2'
 gem 'sass-rails'
 gem 'slim-rails'
 gem 'uglifier'
+gem 'mini_racer'
 
 group :production do
 end
@@ -36,6 +37,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-deploy', require: false
   gem 'capistrano3-puma', '1.2.1', require: false
+  gem 'io-console', require: false
   # net-ssh requires the following gems for ed25519 support:
   gem 'rbnacl', '>= 3.2', '< 5.0', require: false
   #gem 'rbnacl-libsodium', require: false
